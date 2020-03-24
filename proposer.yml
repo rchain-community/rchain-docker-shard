@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  proposer:
+    build: ./proposeImage
+    command: ["--config", "/propose_config.yml"]
+    networks:
+      - rchain-net
+    volumes:
+      - ./resources/nil.rho:/nil.rho
+      - ./resources/propose_config.yml:/propose_config.yml
+
+networks:
+  rchain-net:

@@ -1,0 +1,6 @@
+.history
+.vscode
+.idea
+local
+.local/
+data/*
