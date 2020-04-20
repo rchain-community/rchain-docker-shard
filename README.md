@@ -13,11 +13,13 @@ Initially network state is clean. Once shard is started, nodes will perform gene
 
 * List of public keys of validators bonded in genesis block (bonds file): [./genesis/bonds.txt](./genesis/bonds.txt)
 
-* REV balances in genesis block (wallets file): [./genesis/wallets.txt](./genesis/wallets.txt)
-
-* Private keys and REV addresses for public keys in bonds file (format `PublicKeyHex, PrivateKeyHex, RevAddress`): [./resources/keys.txt](./resources/keys.txt).
+* REV balances in the genesis block (wallets file): [./genesis/wallets.txt](./genesis/wallets.txt)
 
 * Configuration files for network nodes: [./conf](./conf)
+
+* Validator identities (Secp256k1 keypairs). Keypairs are generated using `rnode keygen` command, private key files are encrypted with password `123`.&nbsp;   
+[./conf/bootstrap/rnode.key](./conf/bootstrap/rnode.key) - encrypted private key in PEM format.&nbsp;  
+[./conf/bootstrap/rnode.pub.pem](./conf/bootstrap/rnode.pub.pem) and [./conf/bootstrap/rnode.pub.hex](./conf/bootstrap/rnode.pub.hex) - public key in PEM and hex format correspondingly.
 
 ### External Resource
 

@@ -1,10 +1,13 @@
 version: "3.4"
 
 x-rnode: &default-rnode
-  image: rchain/rnode:latest
+  image: coop.rchain/rnode:latest
   user: root
   networks:
     - rchain-net
+  environment:
+    # Keyfiles are generated using `rnode keygen` with this password
+    - RNODE_VALIDATOR_PASSWORD=123
 
 services:
   boot:
@@ -13,7 +16,6 @@ services:
     command:
       [
         "run",
-        "--validator-private-key=$BOOTSTRAP_PRIVATE_KEY",
         "--host=$BOOTSTRAP_HOST",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
@@ -28,7 +30,8 @@ services:
       - ./data/$BOOTSTRAP_HOST:/var/lib/rnode/
       - ./genesis/wallets.txt:/var/lib/rnode/genesis/wallets.txt
       - ./genesis/bonds.txt:/var/lib/rnode/genesis/bonds.txt
-      - ./conf/bootstrap.conf:/var/lib/rnode/rnode.conf
+      - ./conf/bootstrap/bootstrap.conf:/var/lib/rnode/rnode.conf
+      - ./conf/bootstrap/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
 
   validator1:
@@ -38,7 +41,6 @@ services:
       [
         "run",
         "--bootstrap=rnode://5b0390a7c34319310de2432cc2c9dc433043783e@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
-        "--validator-private-key=$VALIDATOR1_PRIVATE_KEY",
         "--host=$VALIDATOR1_HOST",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
@@ -53,7 +55,8 @@ services:
       - ./data/$VALIDATOR1_HOST:/var/lib/rnode/
       - ./genesis/wallets.txt:/var/lib/rnode/genesis/wallets.txt
       - ./genesis/bonds.txt:/var/lib/rnode/genesis/bonds.txt
-      - ./conf/validator1.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator1/validator1.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator1/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
 
   validator2:
@@ -63,7 +66,6 @@ services:
       [
         "run",
         "--bootstrap=rnode://5b0390a7c34319310de2432cc2c9dc433043783e@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
-        "--validator-private-key=$VALIDATOR2_PRIVATE_KEY",
         "--host=$VALIDATOR2_HOST",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
@@ -78,7 +80,8 @@ services:
       - ./data/$VALIDATOR2_HOST:/var/lib/rnode/
       - ./genesis/wallets.txt:/var/lib/rnode/genesis/wallets.txt
       - ./genesis/bonds.txt:/var/lib/rnode/genesis/bonds.txt
-      - ./conf/validator2.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator2/validator2.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator2/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
 
 networks:
