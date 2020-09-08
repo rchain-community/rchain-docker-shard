@@ -32,6 +32,8 @@ services:
       - ./genesis/bonds.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/bootstrap/bootstrap.conf:/var/lib/rnode/rnode.conf
       - ./conf/bootstrap/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/bootstrap/node.key.pem:/var/lib/rnode/node.key.pem
+      - ./conf/bootstrap/node.certificate.pem:/var/lib/rnode/node.certificate.pem
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
 
   validator1:
@@ -40,7 +42,7 @@ services:
     command:
       [
         "run",
-        "--bootstrap=rnode://5b0390a7c34319310de2432cc2c9dc433043783e@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
         "--host=$VALIDATOR1_HOST",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
@@ -65,7 +67,7 @@ services:
     command:
       [
         "run",
-        "--bootstrap=rnode://5b0390a7c34319310de2432cc2c9dc433043783e@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
         "--host=$VALIDATOR2_HOST",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
