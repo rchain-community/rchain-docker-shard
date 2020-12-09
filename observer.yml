@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   observer:
-    image: coop.rchain/rnode:latest
+    image: rchain/rnode:latest
     user: root
     networks:
       - rchain-net
