@@ -17,6 +17,7 @@ services:
       [
         "run",
         "-s",
+        "--dev-mode",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
       ]
