@@ -13,13 +13,19 @@ Initially network state is clean. Once shard is started, nodes will perform gene
 
 * List of public keys of validators bonded in genesis block (bonds file): [./genesis/bonds.txt](./genesis/bonds.txt)
 
-* REV balances in the genesis block (wallets file): [./genesis/wallets.txt](./genesis/wallets.txt)
+* REV balances in the genesis block (wallets file): [./genesis/wallets.txt](./genesis/wallets.txt). Format is ETH addr, number of revletts, 0. Default account:
+  * Private key	49b3dd73a5dd5e35620531c58e8bd41b1a3d4e1b1fc924418a6e3cbd6b6d5dc6
+  * Public key	04bc79a11dbd780bb1b908728ceac406762b641aafc321552ab17995e2c2a76d19fdae81566632b5916791bb4c7fc7f56d1080cc4cfe33c2233b1b7612136ae637
+  * ETH	fd62806439c4ae196d5e91b9291e23ee6d35e663
+  * REV	11112XUPSZDELqBsGRc7t4vZAXHztAcUfLwHHB1uJXjS7uEKKqhfwaHztAcUfLwHHB1uJXjS7uEKKqhfwa
 
 * Configuration files for network nodes: [./conf](./conf)
 
 * Validator identities (Secp256k1 keypairs). Keypairs are generated using `rnode keygen` command, private key files are encrypted with password `123`.&nbsp;   
 [./conf/bootstrap/rnode.key](./conf/bootstrap/rnode.key) - encrypted private key in PEM format.&nbsp;  
 [./conf/bootstrap/rnode.pub.pem](./conf/bootstrap/rnode.pub.pem) and [./conf/bootstrap/rnode.pub.hex](./conf/bootstrap/rnode.pub.hex) - public key in PEM and hex format correspondingly.
+
+NOTE: remove the ./data directory to perhorm new genesis after changing configuration.
 
 ### External Resource
 
