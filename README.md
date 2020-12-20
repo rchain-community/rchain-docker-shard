@@ -25,7 +25,7 @@ Initially network state is clean. Once shard is started, nodes will perform gene
 [./conf/bootstrap/rnode.key](./conf/bootstrap/rnode.key) - encrypted private key in PEM format.&nbsp;  
 [./conf/bootstrap/rnode.pub.pem](./conf/bootstrap/rnode.pub.pem) and [./conf/bootstrap/rnode.pub.hex](./conf/bootstrap/rnode.pub.hex) - public key in PEM and hex format correspondingly.
 
-NOTE: remove the ./data directory to perhorm new genesis after changing configuration.
+NOTE: remove the ./data directory to perform new genesis after changing configuration.
 
 ### External Resource
 
