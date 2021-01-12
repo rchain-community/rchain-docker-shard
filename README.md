@@ -44,6 +44,9 @@ To start only a standalone node (container `rnode.bootstrap`)
 
     $ docker-compose -f ./standalone.yml up
 
+Standalone compose file also includes Jaeger installation to measure performance.
+To see spans emitted by standalone node, look at http://localhost:16686/
+
 ### [OPTIONAL] Enable automatic block creation
 
 Make sure shard is up and running and all nodes printed `Making a transition to Running state.`, which means Casper instance is ready to accept connections.

@@ -1,7 +1,7 @@
 version: "3.4"
 
 x-rnode: &default-rnode
-  image: coop.rchain/rnode:latest
+  image: rchain/rnode:v0.10.0
   user: root
   networks:
     - rchain-net
@@ -18,6 +18,7 @@ services:
         "run",
         "-s",
         "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "--zipkin",
         "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
       ]
     ports:
@@ -33,6 +34,15 @@ services:
       - ./conf/standalone/standalone.conf:/var/lib/rnode/rnode.conf
       - ./conf/standalone/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
+      - ./conf/standalone/kamon.conf:/var/lib/rnode/kamon.conf
+  jaeger:
+    image: jaegertracing/all-in-one:1.21
+    user: root
+    networks:
+      - rchain-net
+    container_name: jaeger_dc
+    ports:
+      - 16686:16686
 
 networks:
   rchain-net:
