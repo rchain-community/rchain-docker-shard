@@ -32,8 +32,8 @@ services:
       - 40404:40404
     volumes:
       - ./data/$BOOTSTRAP_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/bootstrap/bootstrap.conf:/var/lib/rnode/rnode.conf
       - ./conf/bootstrap/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/bootstrap/node.key.pem:/var/lib/rnode/node.key.pem
@@ -62,8 +62,8 @@ services:
       - 50404:40404
     volumes:
       - ./data/$VALIDATOR1_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator1/validator1.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator1/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -90,8 +90,8 @@ services:
       - 60404:40404
     volumes:
       - ./data/$VALIDATOR2_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator2/validator2.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator2/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -118,8 +118,8 @@ services:
       - 51404:40404
     volumes:
       - ./data/$VALIDATOR3_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator3/validator3.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator3/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -146,8 +146,8 @@ services:
       - 52404:40404
     volumes:
       - ./data/$VALIDATOR4_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator4/validator4.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator4/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -174,8 +174,8 @@ services:
       - 53404:40404
     volumes:
       - ./data/$VALIDATOR5_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator5/validator5.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator5/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -202,8 +202,8 @@ services:
       - 54404:40404
     volumes:
       - ./data/$VALIDATOR6_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator6/validator6.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator6/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -230,8 +230,8 @@ services:
       - 55404:40404
     volumes:
       - ./data/$VALIDATOR7_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator7/validator7.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator7/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -258,8 +258,8 @@ services:
       - 56404:40404
     volumes:
       - ./data/$VALIDATOR8_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator8/validator8.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator8/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
@@ -286,10 +286,122 @@ services:
       - 57404:40404
     volumes:
       - ./data/$VALIDATOR9_HOST:/var/lib/rnode/
-      - ./genesis/wallets10.txt:/var/lib/rnode/genesis/wallets.txt
-      - ./genesis/bonds10.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
       - ./conf/validator9/validator9.conf:/var/lib/rnode/rnode.conf
       - ./conf/validator9/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator10:
+    <<: *default-rnode
+    container_name: $VALIDATOR10_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR10_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=f8edcf97cead925c4ec5629ce207206340892b1081f0a370684978f7cd79a9e6",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 58400:40400
+      - 58401:40401
+      - 58402:40402
+      - 58403:40403
+      - 58404:40404
+    volumes:
+      - ./data/$VALIDATOR10_HOST:/var/lib/rnode/
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator10/validator10.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator10/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator11:
+    <<: *default-rnode
+    container_name: $VALIDATOR11_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR11_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=899f2990589ddf11dc5fb618511644c3744eafe35bc8cd6129c5802b805a34b5",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 59400:40400
+      - 59401:40401
+      - 59402:40402
+      - 59403:40403
+      - 59404:40404
+    volumes:
+      - ./data/$VALIDATOR11_HOST:/var/lib/rnode/
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator11/validator11.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator11/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator12:
+    <<: *default-rnode
+    container_name: $VALIDATOR12_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR12_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=adb96f229c2c5bc2de7584e93931acf6a64eeed63b0c9e7ea647c4f1a4865aa7",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 60400:40400
+      - 60401:40401
+      - 60402:40402
+      - 60403:40403
+      - 60404:40404
+    volumes:
+      - ./data/$VALIDATOR12_HOST:/var/lib/rnode/
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator12/validator12.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator12/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator13:
+    <<: *default-rnode
+    container_name: $VALIDATOR13_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR13_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=5cfc00779dba7c1e69d992b7f15cdbf66224ce16e435e64f3b212e481f712067",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 51500:40400
+      - 51501:40401
+      - 51502:40402
+      - 51503:40403
+      - 51504:40404
+    volumes:
+      - ./data/$VALIDATOR13_HOST:/var/lib/rnode/
+      - ./genesis/wallets14.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds14.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator13/validator13.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator13/rnode.key:/var/lib/rnode/rnode.key
       - ./conf/logback.xml:/var/lib/rnode/logback.xml
 
 networks:

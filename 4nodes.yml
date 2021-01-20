@@ -1,0 +1,128 @@
+version: "3.4"
+
+x-rnode: &default-rnode
+  image: nuttzipper/rnode:bm
+  user: root
+  mem_limit: 16g
+  networks:
+    - rchain-net
+  environment:
+    # Keyfiles are generated using `rnode keygen` with this password
+    - RNODE_VALIDATOR_PASSWORD=123
+
+services:
+  boot:
+    <<: *default-rnode
+    container_name: $BOOTSTRAP_HOST
+    command:
+      [
+        "run",
+        "--host=$BOOTSTRAP_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=23bf9c149eda545a177666aca2d598026c241c3b33905a7058450370f57f9ee8",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 40400:40400
+      - 40401:40401
+      - 40402:40402
+      - 40403:40403
+      - 40404:40404
+    volumes:
+      - ./data/$BOOTSTRAP_HOST:/var/lib/rnode/
+      - ./genesis/wallets4.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds4.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/bootstrap/bootstrap.conf:/var/lib/rnode/rnode.conf
+      - ./conf/bootstrap/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/bootstrap/node.key.pem:/var/lib/rnode/node.key.pem
+      - ./conf/bootstrap/node.certificate.pem:/var/lib/rnode/node.certificate.pem
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator1:
+    <<: *default-rnode
+    container_name: $VALIDATOR1_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR1_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=817fd830f9fd0c48d525867f9a67a4858c589688ce1ab18e48ff094e768383d4",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 50400:40400
+      - 50401:40401
+      - 50402:40402
+      - 50403:40403
+      - 50404:40404
+    volumes:
+      - ./data/$VALIDATOR1_HOST:/var/lib/rnode/
+      - ./genesis/wallets4.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds4.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator1/validator1.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator1/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator2:
+    <<: *default-rnode
+    container_name: $VALIDATOR2_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR2_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=ec695ec18b6263f905eba395b33ffb26de5529fefd596f7ce485ba947a72c783",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 60400:40400
+      - 60401:40401
+      - 60402:40402
+      - 60403:40403
+      - 60404:40404
+    volumes:
+      - ./data/$VALIDATOR2_HOST:/var/lib/rnode/
+      - ./genesis/wallets4.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds4.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator2/validator2.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator2/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+  validator3:
+    <<: *default-rnode
+    container_name: $VALIDATOR3_HOST
+    command:
+      [
+        "run",
+        "--bootstrap=rnode://cf2f66e6b6955f5c2f0edff54ecdfdd142a55763@$BOOTSTRAP_HOST?protocol=40400&discovery=40404",
+        "--host=$VALIDATOR3_HOST",
+        "--dev-mode",
+        "--autopropose",
+        "--deployer-private-key=77c9dd956d894b96ba16cc4d61e9be005f0a6d8e47ec315d5b14039d67dcc21f",
+        "--synchrony-constraint-threshold=$SYNCHRONY_CONSTRAINT_THRESHOLD",
+        "-Dlogback.configurationFile=/var/lib/rnode/logback.xml"
+      ]
+    ports:
+      - 51400:40400
+      - 51401:40401
+      - 51402:40402
+      - 51403:40403
+      - 51404:40404
+    volumes:
+      - ./data/$VALIDATOR3_HOST:/var/lib/rnode/
+      - ./genesis/wallets4.txt:/var/lib/rnode/genesis/wallets.txt
+      - ./genesis/bonds4.txt:/var/lib/rnode/genesis/bonds.txt
+      - ./conf/validator3/validator3.conf:/var/lib/rnode/rnode.conf
+      - ./conf/validator3/rnode.key:/var/lib/rnode/rnode.key
+      - ./conf/logback.xml:/var/lib/rnode/logback.xml
+
+networks:
+  rchain-net:
